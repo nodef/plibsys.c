@@ -26,7 +26,7 @@
 #define INCL_DOSPROCESS
 #define INCL_DOSERRORS
 #include <os2.h>
-#include <process.h>
+#include "process.h"
 
 #ifdef P_DEBUG
 #  undef P_DEBUG
@@ -202,7 +202,7 @@ pp_uthread_get_tls_key (PUThreadKey *key)
 	return thread_key;
 }
 
-static void 
+static void
 pp_uthread_clean_destructors (void)
 {
 	pboolean was_called;

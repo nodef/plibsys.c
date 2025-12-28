@@ -36,14 +36,14 @@
  */
 
 #if !defined (PLIBSYS_H_INSIDE) && !defined (PLIBSYS_COMPILATION)
-#  error "Header files shouldn't be included directly, consider using <plibsys.h> instead."
+#  error "Header files shouldn't be included directly, consider using "plibsys.h" instead."
 #endif
 
 #ifndef PLIBSYS_HEADER_PPROCESS_H
 #define PLIBSYS_HEADER_PPROCESS_H
 
-#include <pmacros.h>
-#include <ptypes.h>
+#include "pmacros.h"
+#include "ptypes.h"
 
 P_BEGIN_DECLS
 
@@ -66,4 +66,3 @@ P_LIB_API pboolean	p_process_is_running		(puint32 pid);
 P_END_DECLS
 
 #endif /* PLIBSYS_HEADER_PPROCESS_H */
-

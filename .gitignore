@@ -1,6 +1,8 @@
 # Build artifacts
 .build/
 *.exe
+*.exp
+*.lib
 
 # Logs
 logs

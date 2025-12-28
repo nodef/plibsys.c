@@ -1,6 +1,6 @@
 {
   "name": "plibsys.c",
-  "version": "0.0.5",
+  "version": "1.2024.11",
   "description": "Highly portable C system library: threads and synchronization primitives, sockets (TCP, UDP, SCTP), IPv4 and IPv6, IPC, hash functions (MD5, SHA-1, SHA-2, SHA-3, GOST), binary trees (RB, AVL) and more. Native code performance; Alexander Saprykin (2010).",
   "keywords": [
     "c",

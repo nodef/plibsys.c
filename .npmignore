@@ -5,3 +5,5 @@ build.sh
 # Example artifacts
 examples/
 *.exe
+*.exp
+*.lib

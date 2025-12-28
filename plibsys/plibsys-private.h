@@ -24,7 +24,7 @@
  */
 
 #if !defined (PLIBSYS_H_INSIDE) && !defined (PLIBSYS_COMPILATION)
-#  error "Header files shouldn't be included directly, consider using <plibsys.h> instead."
+#  error "Header files shouldn't be included directly, consider using "plibsys.h" instead."
 #endif
 
 #ifndef PLIBSYS_HEADER_PLIBSYS_PRIVATE_H
@@ -56,6 +56,7 @@ typedef int socklen_t;
 
 #  define _PLIBSYS_SS_PAD2SIZE	(_PLIBSYS_SS_MAXSIZE - (sizeof (puchar) + _PLIBSYS_SS_PAD1SIZE + _PLIBSYS_SS_ALIGNSIZE))
 
+#ifndef _SS_MAXSIZE
 struct sockaddr_storage {
 #  ifdef PLIBSYS_SOCKADDR_HAS_SA_LEN
 	puchar		ss_len;
@@ -79,6 +80,7 @@ struct sockaddr_storage {
 	pint64		__ss_align;
 	pchar		__ss_pad2[_PLIBSYS_SS_PAD2SIZE];
 };
+#endif /* _SS_MAXSIZE */
 #endif
 
 P_END_DECLS

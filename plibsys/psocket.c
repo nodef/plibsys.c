@@ -310,7 +310,9 @@ pp_socket_set_details_from_fd (PSocket	*socket,
 	return TRUE;
 }
 
-pboolean
+// FIX: Conflicting types for 'p_socket_init_once' (@wolfram77)
+// pboolean
+void
 p_socket_init_once (void)
 {
 #ifdef P_OS_WIN
@@ -320,18 +322,18 @@ p_socket_init_once (void)
 	ver_req = MAKEWORD (2, 2);
 
 	if (P_UNLIKELY (WSAStartup (ver_req, &wsa_data) != 0))
-		return FALSE;
+		return; // FALSE;
 
 	if (P_UNLIKELY (LOBYTE (wsa_data.wVersion) != 2 || HIBYTE (wsa_data.wVersion) != 2)) {
 		WSACleanup ();
-		return FALSE;
+		return; // FALSE;
 	}
 #else
 #  ifdef SIGPIPE
 	signal (SIGPIPE, SIG_IGN);
 #  endif
 #endif
-	return TRUE;
+	return; // TRUE;
 }
 
 void

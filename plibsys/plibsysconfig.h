@@ -85,7 +85,7 @@
 #include <windows.h>
 #endif
 
-#include <pmacros.h>
+#include "pmacros.h"
 
 #ifdef PLIBSYS_NEED_FLOAT_H
 #include <float.h>

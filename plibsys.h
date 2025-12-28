@@ -50,7 +50,7 @@
 #else
 /* Simulation fallback */
 #include "plibsys/patomic-sim.c"
-#endif
+#endif /* P_CC_MSVC */
 
 /* Platform-specific: Spinlock */
 #if defined(P_CC_MSVC) || defined(P_CC_BORLAND)
@@ -71,7 +71,7 @@
 #else
 /* Simulation fallback */
 #include "plibsys/pspinlock-sim.c"
-#endif
+#endif /* P_CC_MSVC */
 
 /* Platform-specific: Mutex */
 #if defined(P_OS_WIN)
@@ -90,7 +90,7 @@
 #include "plibsys/pmutex-posix.c"
 #else
 #include "plibsys/pmutex-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Platform-specific: Condition Variable */
 #if defined(P_OS_WIN)
@@ -109,7 +109,7 @@
 #include "plibsys/pcondvariable-posix.c"
 #else
 #include "plibsys/pcondvariable-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Platform-specific: Read-Write Lock */
 #if defined(P_OS_WIN)
@@ -121,7 +121,7 @@
 #else
 /* General implementation using mutex + condvar */
 #include "plibsys/prwlock-general.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Platform-specific: Thread */
 #if defined(P_OS_WIN)
@@ -140,7 +140,7 @@
 #include "plibsys/puthread-posix.c"
 #else
 #include "plibsys/puthread-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Always include the main thread wrapper */
 #include "plibsys/puthread.c"
@@ -161,7 +161,7 @@
 #include "plibsys/psemaphore-posix.c"
 #else
 #include "plibsys/psemaphore-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Platform-specific: Shared Memory */
 #if defined(P_OS_WIN)
@@ -179,7 +179,7 @@
 #include "plibsys/pshm-posix.c"
 #else
 #include "plibsys/pshm-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Shared memory buffer (platform-independent wrapper) */
 #include "plibsys/pshmbuffer.c"
@@ -193,7 +193,7 @@
 #include "plibsys/pdir-posix.c"
 #else
 #include "plibsys/pdir-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Directory wrapper (platform-independent) */
 #include "plibsys/pdir.c"
@@ -215,7 +215,7 @@
 #include "plibsys/plibraryloader-posix.c"
 #else
 #include "plibsys/plibraryloader-none.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Platform-specific: Time Profiler */
 #if defined(P_OS_WIN)
@@ -238,7 +238,7 @@
 #else
 /* Generic gettimeofday() fallback */
 #include "plibsys/ptimeprofiler-generic.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Time profiler wrapper (platform-independent) */
 #include "plibsys/ptimeprofiler.c"
@@ -250,10 +250,13 @@
 #include "plibsys/psysclose-darwin.c"
 #elif defined(P_OS_UNIX) || defined(P_OS_CYGWIN) || defined(P_OS_MSYS)
 #include "plibsys/psysclose-unix.c"
-#endif
+#endif /* P_OS_WIN */
 
 /* Network sockets (platform-independent, but uses platform headers) */
 #include "plibsys/psocket.c"
 #include "plibsys/psocketaddress.c"
+#if defined(P_OS_WIN)
+#pragma comment(lib, "ws2_32.lib")
+#endif /* P_OS_WIN */
 
-#endif
+#endif /* PLIBSYS_IMPLEMENTATION */

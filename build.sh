@@ -39,12 +39,18 @@ echo ""
 
 # Test the project
 test() {
-echo "Running 01-thread-creation.c ..."
-clang -I. -o 01.exe examples/01-thread-creation.c      && ./01.exe && echo -e "\n"
-echo "Running 02-mutex-locking.c ..."
-clang -I. -o 02.exe examples/02-mutex-locking.c        && ./02.exe && echo -e "\n"
-echo "Running 03-condition-variables.c ..."
-clang -I. -o 03.exe examples/03-condition-variables.c  && ./03.exe && echo -e "\n"
+echo "Running 01-threads.c ..."
+clang -I. -o 01.exe examples/01-threads.c            && ./01.exe && echo -e "\n"
+# echo "Running 02-sockets.c ..."
+# clang -I. -o 02.exe examples/02-sockets.c            && ./02.exe && echo -e "\n"
+echo "Running 03-hash.c ..."
+clang -I. -o 03.exe examples/03-hash.c               && ./03.exe && echo -e "\n"
+echo "Running 04-shared-memory.c ..."
+clang -I. -o 04.exe examples/04-shared-memory.c      && ./04.exe && echo -e "\n"
+echo "Running 05-ini-parser.c ..."
+clang -I. -o 05.exe examples/05-ini-parser.c         && ./05.exe && echo -e "\n"
+echo "Running 06-condition-variable.c ..."
+clang -I. -o 06.exe examples/06-condition-variable.c && ./06.exe && echo -e "\n"
 }
 
 

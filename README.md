@@ -137,7 +137,7 @@ You may also use a simpler approach:
 ```c
 // main.c
 #define PLIBSYS_IMPLEMENTATION
-#include <plibsys.h>
+#include "plibsys.h"
 
 int main() { /* ... */ }
 ```

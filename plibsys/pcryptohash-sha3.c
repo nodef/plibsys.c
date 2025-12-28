@@ -30,7 +30,7 @@
 #include "pcryptohash-sha3.h"
 
 struct PHashSHA3_ {
-	union buf_ {
+	union {
 		puchar	buf[200];
 		puint64	buf_w[25];
 	} buf;

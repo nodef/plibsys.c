@@ -30,7 +30,7 @@
 #include <stdlib.h>
 
 struct PHashMD5_ {
-	union buf_ {
+	union {
 		puchar	buf[64];
 		puint32	buf_w[16];
 	} buf;

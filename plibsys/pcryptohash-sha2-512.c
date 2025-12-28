@@ -30,7 +30,7 @@
 #include "pcryptohash-sha2-512.h"
 
 struct PHashSHA2_512_ {
-	union buf_ {
+	union {
 		puchar	buf[128];
 		puint64	buf_w[16];
 	} buf;
